@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/MADZ-labs/campaign/issues"
   },
-  "homepage": "https://github.com/MADZ-labs/campaign#readme"
+  "homepage": "https://github.com/MADZ-labs/campaign#readme",
+  "devDependencies": {
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0"
+  }
 }
