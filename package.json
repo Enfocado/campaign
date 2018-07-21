@@ -37,6 +37,8 @@
   },
   "dependencies": {
     "express": "^4.16.3",
+    "faker": "^4.1.0",
+    "log": "^1.4.0",
     "nodemon": "^1.18.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
