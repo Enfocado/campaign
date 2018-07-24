@@ -5,7 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
-    "build": "webpack",
+    "build": "webpack -d --w",
     "start": "nodemon ./server/index.js"
   },
   "repository": {
@@ -39,6 +39,7 @@
     "express": "^4.16.3",
     "faker": "^4.1.0",
     "log": "^1.4.0",
+    "mysql": "^2.16.0",
     "nodemon": "^1.18.3",
     "react": "^16.4.1",
     "react-dom": "^16.4.1"
