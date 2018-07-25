@@ -1,7 +1,7 @@
 const express = require('express');
 const Log = require('log');
-const db = require('../db/index.js');
-const sampleData = require('../sample_data.js');
+const db = require('../db/index');
+const sampleData = require('../sample_data');
 
 const app = express();
 const port = process.env.PORT || 3002;
