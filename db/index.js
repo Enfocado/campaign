@@ -26,4 +26,11 @@ module.exports = {
       log.info(results);
     });
   },
+  retrieve: (origin, condition, callback) => {
+    const sql = `SELECT * FROM ${origin} WHERE ${condition}`;
+    connection.query(sql, (error, results) => {
+      if (error) throw error;
+      callback(results);
+    });
+  },
 };
