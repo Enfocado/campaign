@@ -14,3 +14,12 @@ connection.connect((err) => {
   log.info(`connected as id ${connection.threadId}`);
 });
 
+module.exports = {
+  insert: (table, cols, values) => {
+    const sql = `INSERT INTO ${table} (${cols}) VALUES (${values})`;
+    connection.query(sql, (error, results) => {
+      if (error) throw error;
+      log.info(results);
+    });
+  },
+};
