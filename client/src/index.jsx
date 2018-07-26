@@ -1,10 +1,11 @@
 /* eslint-env browser */
 import React from 'react';
 import ReactDOM from 'react-dom';
+import About from './components/about';
 
 const App = () => (
   <div>
-    Hello Webpack
+    <About />
   </div>
 );
 

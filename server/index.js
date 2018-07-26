@@ -1,7 +1,7 @@
 const express = require('express');
 const Log = require('log');
-const db = require('../db/index.js');
-const sampleData = require('../sample_data.js');
+const db = require('../db/index');
+const sampleData = require('../sample_data');
 
 const app = express();
 const port = process.env.PORT || 3002;
@@ -12,6 +12,16 @@ app.use(express.static('client/dist'));
 
 app.get('/test', (req, res) => {
   res.send('hello GET');
+});
+
+app.get('/project/:projectId/section/:sectionName', (req, res) => {
+  db.retrieve(req.params.sectionName, req.params.projectId, (err, results) => {
+    if (err) {
+      log.error(err);
+    } else {
+      res.send(results);
+    }
+  });
 });
 
 if (process.env.NODE_ENV !== 'test') {
