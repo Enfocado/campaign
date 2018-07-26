@@ -8,6 +8,9 @@ const App = () => (
   <div>
     <div>
     <About />
+      <h1>
+        Risk and Challenges
+      </h1>
     </div>
     <div>
       <Pledges />
