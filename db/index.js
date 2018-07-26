@@ -22,15 +22,21 @@ module.exports = {
   insert: (table, cols, values) => {
     const sql = `INSERT INTO ${table} (${cols}) VALUES (${values})`;
     connection.query(sql, (error, results) => {
-      if (error) throw error;
-      log.info(results);
+      if (error) {
+        log.error(error);
+      } else {
+        log.info(results);
+      }
     });
   },
   retrieve: (origin, condition, callback) => {
     const sql = `SELECT * FROM ${origin} WHERE ${condition}`;
     connection.query(sql, (error, results) => {
-      if (error) throw error;
-      callback(results);
+      if (error) {
+        log.error(error);
+      } else {
+        callback(null, results);
+      }
     });
   },
 };

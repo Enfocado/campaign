@@ -15,8 +15,12 @@ app.get('/test', (req, res) => {
 });
 
 app.get('/project/:projectId/section/:sectionName', (req, res) => {
-  db.retrieve(req.params.sectionName, req.params.projectId, (results) => {
-    res.send(results);
+  db.retrieve(req.params.sectionName, req.params.projectId, (err, results) => {
+    if (err) {
+      log.error(err);
+    } else {
+      res.send(results);
+    }
   });
 });
 
