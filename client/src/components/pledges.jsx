@@ -1,11 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
-
-const moment = require('moment');
+import Pledge from './pledge';
 
 class Pledges extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       pledges: [],
     };
@@ -30,50 +29,25 @@ class Pledges extends React.Component {
           <h2>
             Make a pledge without a reward
           </h2>
+          <table>
+            <tr>
+              <td>
+                $
+              </td>
+              <td>
+                <form>
+                  <input type="number" />
+                </form>
+              </td>
+            </tr>
+          </table>
+          <button type="submit">
+            Continue
+          </button>
         </div>
-        <div>
-          {pledges.map(pledge => (
-            <div key={pledge.id}>
-              <h2>
-                Pledge $
-                {pledge.base_amount}
-                {' '}
-                or more
-              </h2>
-              <h3>
-                {pledge.title}
-              </h3>
-              <p>
-                {pledge.description}
-              </p>
-              <div>
-                <div>
-                  <span>
-                    ESTIMATED DELIVERY
-                  </span>
-                  <br />
-                  <span>
-                    {moment(pledge.delivery_date).format('MMM YYYY')}
-                  </span>
-                </div>
-                <div>
-                  <span>
-                    SHIPS TO
-                  </span>
-                  <br />
-                  <span>
-                    {pledge.ships_to}
-                  </span>
-                </div>
-                <span>
-                  {pledge.max_backers}
-                  {' '}
-                  backers
-                </span>
-              </div>
-            </div>
-          ))}
-        </div>
+        {pledges.map(pledge => (
+          <Pledge pledge={pledge} />
+        ))}
       </div>
     );
   }
