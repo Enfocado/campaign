@@ -7,7 +7,7 @@ import Pledges from './components/pledges';
 const App = () => (
   <div>
     <div>
-    <About />
+      <About />
       <h1>
         Risk and Challenges
       </h1>
