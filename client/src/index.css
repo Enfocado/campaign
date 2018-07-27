@@ -1,0 +1,15 @@
+.aboutSection {
+  float: left;
+  width: 66.66%;
+}
+
+.pledgesSection {
+  float: left;
+  width: 33.33%;
+}
+
+.mainSection {
+  max-width: 1040px;
+  margin-left: auto;
+  margin-right: auto;
+}
