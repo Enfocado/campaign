@@ -12,7 +12,7 @@ class About extends React.Component {
   componentDidMount() {
     $.get('/project/1/section/about_components', (data) => {
       this.setState({
-        components: data,
+        components: JSON.parse(data),
       });
     });
   }
