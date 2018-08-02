@@ -10,8 +10,8 @@ const log = new Log('info');
 
 app.use(express.static('client/dist'));
 
-app.get('/test', (req, res) => {
-  res.send('hello GET');
+app.get('/', (req, res) => {
+  res.end();
 });
 
 app.get('/project/:projectId/section/:sectionName', (req, res) => {
@@ -63,6 +63,5 @@ app.get('/insertSampleData', (req, res) => {
   });
   res.send('hello GET');
 });
-
 
 module.exports = app;

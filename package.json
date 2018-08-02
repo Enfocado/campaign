@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "test": "jest",
+    "test_coverage": "jest --coverage --watch",
     "build": "webpack -d --w",
     "start": "nodemon ./server/index.js"
   },

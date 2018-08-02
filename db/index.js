@@ -19,6 +19,7 @@ connection.connect((err) => {
 });
 
 module.exports = {
+  connection,
   insert: (table, cols, values) => {
     const sql = `INSERT INTO ${table} (${cols}) VALUES (${values})`;
     connection.query(sql, (error, results) => {
