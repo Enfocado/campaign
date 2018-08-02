@@ -10,6 +10,10 @@ const log = new Log('info');
 
 app.use(express.static('client/dist'));
 
+app.get('/', (req, res) => {
+  res.end();
+});
+
 app.get('/project/:projectId/section/:sectionName', (req, res) => {
   db.retrieve(req.params.sectionName, req.params.projectId, (err, results) => {
     if (err) {
