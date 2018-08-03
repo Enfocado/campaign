@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+
+  campaign:
+    container_name: campaign
+    build: .
+    depends_on:
+      - 'db'
+    links:
+      - 'db'
+    ports:
+      - '3002:3002'
+    restart: on-failure
+
+  db:
+    container_name: db
+    build: dockerDb/
+    image: mysql:5.7
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_USER: root
+      MYSQL_DATABASE: campaign
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'true'

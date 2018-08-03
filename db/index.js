@@ -4,9 +4,10 @@ const Log = require('log');
 const log = new Log('info');
 
 const connection = mysql.createConnection({
-  host: 'localhost',
+  // host: 'localhost',
+  host: 'db',
   user: 'root',
-  password: process.env.MYSQL_ROOT_PASSWORD,
+  // password: process.env.MYSQL_ROOT_PASSWORD,
   database: 'campaign',
 });
 
