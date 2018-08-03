@@ -1,11 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import CountrySelector from './countrySelector';
 
 const moment = require('moment');
 
 class Pledge extends React.Component {
-  constructor({ pledge }) {
-    super({ pledge });
+  constructor(props) {
+    super(props);
+    const { pledge } = this.props;
     this.state = {
       element: pledge,
     };
@@ -83,5 +85,16 @@ class Pledge extends React.Component {
     );
   }
 }
+
+Pledge.propTypes = {
+  pledge: PropTypes.shape({
+    base_amount: PropTypes.number,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    delivery_date: PropTypes.string,
+    ships_to: PropTypes.string,
+    max_backers: PropTypes.number,
+  }).isRequired,
+};
 
 export default Pledge;
