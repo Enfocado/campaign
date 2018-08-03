@@ -13,7 +13,7 @@ class Pledges extends React.Component {
   componentDidMount() {
     $.get('/project/1/section/offered_tiers', (data) => {
       this.setState({
-        pledges: JSON.parse(data),
+        pledges: data,
       });
     });
   }

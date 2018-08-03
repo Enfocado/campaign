@@ -10,9 +10,10 @@ class About extends React.Component {
   }
 
   componentDidMount() {
+    $.get('/insertSampleData');
     $.get('/project/1/section/about_components', (data) => {
       this.setState({
-        components: JSON.parse(data),
+        components: data,
       });
     });
   }
