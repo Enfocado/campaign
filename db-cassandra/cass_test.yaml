@@ -1,0 +1,93 @@
+### DML ###
+
+# Keyspace Name
+keyspace: campaign
+
+# The CQL for creating a keyspace (optional if it already exists)
+table: abouts_by_project_id
+
+columnspec:
+  - name: project_id
+    size: gaussian(1..10)
+    population: uniform(1..10M)
+
+  - name: section_id 
+    cluster: gaussian(1..4)
+
+  - name: section_type
+    size: gaussian(8..20)
+
+  - name: content
+    size: gaussian(10..300)
+
+insert:
+  partitions: fixed(1)
+  batchtype: UNLOGGED
+  select: gaussian(1..4)/4
+
+
+queries:
+  singlepost:
+    cql: select * from abouts_by_project_id where project_id = ? LIMIT 10
+    fields: samerow
+
+#
+# A list of queries you wish to run against the schema
+#
+# queries:
+#   singlepost:
+#      cql: select * from sug where id = ? LIMIT 1
+#      fields: samerow
+#   timeline:
+#      cql: select * from sug where id = ? LIMIT 10
+#      fields: samerow
+# ### To run a separate test, uncomment the lines below and
+# ### comment out the lines above through table.
+
+# table: hosts
+# table_definition: |
+#   CREATE TABLE hosts (
+#   id int,
+#   first_name text,
+#   last_name text,
+#   join_in_date TEXT,
+#   email text,
+#   verified boolean,
+#   references_count int,
+#   response_rate decimal,
+#   response_time int,
+#   languages text,
+#   photo_url text,
+#   city text,
+#   state text,
+#   country text,
+#   PRIMARY KEY (id));
+# columnspec: 
+#   - name: id
+#     population: gaussian(1..10000000)
+#   - name: first_name
+#     size: uniform(10..30)
+#   - name: last_name
+#     size: uniform(10..30)
+#   - name: join_in_date
+#     size: uniform(10..15)
+#   - name: email
+#     size: fixed(30)
+#   - name: verified
+#     size: fixed(2)
+#   - name: references_count
+#     size: uniform(0..5)
+#   - name: response_rate
+#     size: uniform(0..5)
+#   - name: response_time
+#     size: uniform(0..5)
+#   - name: languages
+#     size: fixed(30)
+#   - name: photo_url
+#     size: fixed(200)
+#   - name: city
+#     size: fixed(50)
+#   - name: state
+#     size: uniform(10..20)
+#   - name: country
+#     size: fixed(30)
