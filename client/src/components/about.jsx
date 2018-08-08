@@ -1,5 +1,10 @@
 import React from 'react';
 import $ from 'jquery';
+import styled from 'styled-components';
+
+const Images = styled.img`
+  width: 100%
+`;
 
 class About extends React.Component {
   constructor(props) {
@@ -44,7 +49,7 @@ class About extends React.Component {
                 </b>
               )}
               {component.ele_type_id === 4 && (
-                <img src={component.ele_description} alt="" />
+                <Images src={component.ele_description} alt="" />
               )}
             </div>
           ))}
