@@ -49,11 +49,11 @@
 
 ```
 {
-project_id: INT,
-user_id: INT,
-tier_id: INT,
-pledge_amount: INT,
-shipping_destination: STRING
+	project_id: INT,
+	user_id: INT,
+	tier_id: INT,
+	pledge_amount: INT,
+	shipping_destination: STRING
 }
 ```
 
