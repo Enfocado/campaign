@@ -260,11 +260,21 @@ const CountrySelector = () => {
 
   return (
     <Selector>
-      {countries.map(country => (
-        <option key={country.id}>
-          {country.name}
-        </option>
-      ))}
+      {countries.map((country) => {
+        if (country.name === 'United States') {
+          return (
+            <option key={country.id} selected="selected">
+              {country.name}
+            </option>
+          );
+        }
+        return (
+          <option key={country.id}>
+            {country.name}
+          </option>
+        );
+      })
+      }
     </Selector>
   );
 };
