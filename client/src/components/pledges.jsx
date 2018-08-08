@@ -54,6 +54,7 @@ const PledgeButton = styled.button`
   background-color: #009E74;
   color: #FFFFFF !important;
   height: 42px;
+  cursor: pointer;
 `;
 
 class Pledges extends React.Component {
@@ -61,7 +62,9 @@ class Pledges extends React.Component {
     super(props);
     this.state = {
       pledges: [],
+      selected: false,
     };
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -72,20 +75,35 @@ class Pledges extends React.Component {
     });
   }
 
+  handleClick() {
+    this.setState({
+      selected: true,
+    });
+  }
+
   render() {
     const { pledges } = this.state;
+    const { selected } = this.state;
     return (
       <div>
         <h1>
           Support
         </h1>
-        <MainOne>
+        <MainOne onClick={this.handleClick}>
           <FreePledge>
             <FreePledgeTitle>
               Make a pledge without a reward
             </FreePledgeTitle>
           </FreePledge>
           <Amount>
+            {/* <div>
+              <form>
+                <input type="text" />
+              </form>
+              <div>
+                $
+              </div>
+            </div> */}
             <Table>
               <tbody>
                 <tr>
@@ -100,9 +118,11 @@ class Pledges extends React.Component {
                 </tr>
               </tbody>
             </Table>
+            {selected === true && (
             <PledgeButton type="submit">
               Continue
             </PledgeButton>
+            )}
           </Amount>
         </MainOne>
         {pledges.map(pledge => (
