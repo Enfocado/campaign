@@ -34,9 +34,8 @@
 	[
 		{
 			section_id: INT,
-			section_header: STRING,
-			section_content: STRING,
-			section_photo: STRING
+			content_type: STRING,
+			content: STRING
 		}
 	]
 }
