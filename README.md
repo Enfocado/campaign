@@ -12,12 +12,12 @@
 	[
 		{
 			tier_id:  INT,
-			tier_name:  STRING,
-			tier_description: STRING,
+			reward:  STRING,
+			reward_description: STRING,
 			base_pledge_amount: INT,
 			delivery_date: DATE,
 			ship_to: STRING,
-			max_backers: INT,
+			reward_quantity: INT,
 			backers_count: INT
 		}
 	]
@@ -63,12 +63,12 @@
 {
 	project_id: INT,
 	tier_id: INT,
-	tier_name: STRING,
-	tier_description: STRING,
+	reward: STRING,
+	reward_description: STRING,
 	base_pledge_amount: INT,
 	delivery_date: DATE,
 	ship_to: STRING,
-	max_backers: INT,
+	reward_quantity: INT,
 	backers_count: INT
 }
 ```
