@@ -1,6 +1,5 @@
 const fs = require('fs');
 const faker = require('faker');
-const csv = require('fast-csv');
 
 
 const randomInt = (min, max) => Math.floor(Math.random() * (max-min + 1)) + min;
