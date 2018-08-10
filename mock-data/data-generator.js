@@ -75,7 +75,7 @@ const makeTierData = () => {
 				let name = faker.commerce.productName();
 				let description = faker.lorem.sentence();
 				let base = randomInt(10,300);
-				let delivery = faker.date.future();
+				let delivery = faker.date.future().toISOString().substring(0, 10);
 				let destination = 'Anywhere';
 				let max = randomInt(10,999);
 				data += `${projectId},${name},${description},${base},${delivery},${destination},${max}\n`;
@@ -93,6 +93,6 @@ const makeTierData = () => {
 	write();
 }
 
-makeProjectData();
+//makeProjectData();
 //makeAboutData();
-//makeTierData();
+makeTierData();
