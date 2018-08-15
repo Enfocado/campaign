@@ -58,8 +58,8 @@ const makeAboutData = () => {
 const makeTierData = () => {
 	let writer = fs.createWriteStream(`tiers.csv`, {flag: 'a'});
 
-	//write body
-  writer.write(`project_id, reward,description,base_pledge_amount,delivery_date,ship_to,reward_quantity\n`, 'utf-8');
+	//write header
+  writer.write(`project_id,reward,description,base_pledge_amount,delivery_date,ship_to,reward_quantity\n`, 'utf-8');
 	
   //write records
 	let i = 0;
@@ -93,6 +93,42 @@ const makeTierData = () => {
 	write();
 }
 
+const makePledgeData =() => {
+	let writer = fs.createWriteStream('pledges.csv', {flag: 'a'});
+
+	//write header
+	writer.write(`user_id,tier_id,pledge_amount,ship_to\n`, 'utf-8');
+
+	//write records
+	let i = 0;
+	let write = () => {
+		let ok = true;
+		do {
+			i++;
+			if (i%100000 === 0) console.log(i);
+			let tierId = i;
+			let pledgeCount = randomInt(0, 10);
+			let data = '';
+			for (let j = 1; j<= pledgeCount; j++){
+				let userId = randomInt(1, 1000000);
+				let amount = randomInt(50,150);
+				let countryCode = randomInt(23424770, 23425005);
+				data += `${userId},${tierId},${amount},${countryCode}\n`;
+			}
+			if (i === 25000000) {
+				writer.write(data, 'utf-8', () => console.log('done'));
+			} else {
+				ok = writer.write(data, 'utf-8');
+			}
+		} while (i < 25000000 && ok);
+		if(i < 25000000){
+			writer.once('drain', write);
+		}
+	}
+	write();
+}
+
 //makeProjectData();
 //makeAboutData();
-makeTierData();
+//makeTierData();
+makePledgeData();
